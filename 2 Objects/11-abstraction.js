@@ -6,11 +6,7 @@ function Programmer(name,preferredLanguage){
     this.writeCode=function(){
         console.log(`${this.name} writes ${this.preferredLanguage} code.`);
     };
-    this.drinkCoffee=function(){
-        console.log(`${this.name} drinks coffee.`);
-    };
-
-    //Private method
+     //Private method
     const drinkCoffee=function(){
         console.log(`${this.name} drinks coffee.`);
     }.bind(this);
@@ -23,5 +19,4 @@ function Programmer(name,preferredLanguage){
 
 const programmer=new Programmer("John","JavaScript");
 programmer.writeCode();
-programmer.drinkCoffee();
 programmer.startDay();
