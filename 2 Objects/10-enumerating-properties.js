@@ -32,3 +32,10 @@ function GroceryItem(name, quantity) {
     console.log(`${this.name} x ${this.quantity}`);
   };
 }
+const newItem = new GroceryItem("banana", 2);
+
+for (const key of Object.keys(newItem)) 
+  console.log(key);
+
+for (const value of Object.values(newItem)) 
+  console.log(value);
