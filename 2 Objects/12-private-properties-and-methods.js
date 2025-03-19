@@ -26,20 +26,63 @@
 // increment();
 // logNum();
 
-function Programmer(name, preferredLanguage) {
-    let privateName = name;
-    this.preferredLanguage = preferredLanguage;
-    this.writeCode = function () {
-        console.log(`${privateName} codes in ${preferredLanguage}`);
+// function Programmer(name, preferredLanguage) {
+//     let privateName = name;
+//     this.preferredLanguage = preferredLanguage;
+//     this.writeCode = function () {
+//         console.log(`${privateName} codes in ${preferredLanguage}`);
+//     };
+//     let drinkCoffee = function () {
+//         console.log("Gulp...");
+//     };
+//     this.startDay = function () {
+//         drinkCoffee();
+//     };
+// }
+
+// const programmer = new Programmer("John", "JavaScript");
+// programmer.writeCode();
+// programmer.startDay();
+
+function BankAccount(initialBalance) {
+    let balance = initialBalance; // Private variable to store balance
+
+    // Private method to validate the amount
+    const isValidAmount = function(amount) {
+        return typeof amount === 'number' && amount > 0;
+    }
+
+    // Public method to deposit money
+    this.deposit = function(amount) {
+        if (isValidAmount(amount)) {
+            balance += amount;
+            console.log(`Deposited: $${amount}`);
+        } else {
+            console.log('Invalid deposit amount');
+        }
     };
-    let drinkCoffee = function () {
-        console.log("Gulp...");
+
+    // Public method to withdraw money
+    this.withdraw = function(amount) {
+        if (isValidAmount(amount)) {
+            if (amount <= balance) {
+                balance -= amount;
+                console.log(`Withdrew: $${amount}`);
+            } else {
+                console.log('Insufficient funds');
+            }
+        } else {
+            console.log('Invalid withdraw amount');
+        }
     };
-    this.startDay = function () {
-        drinkCoffee();
-    };
+
+    // Public method to get the current balance
+    this.getBalance = function() {
+        return balance;
+    }
 }
 
-const programmer = new Programmer("John", "JavaScript");
-programmer.writeCode();
-programmer.startDay();
+const myAccount = new BankAccount(100);
+myAccount.deposit(50);
+myAccount.withdraw(30);
+console.log(myAccount.getBalance());
