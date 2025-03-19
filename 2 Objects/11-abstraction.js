@@ -29,12 +29,15 @@ function GroceryItem(name, quantity) {
 
 function GroceryList() {
   const items = [];
-  this.addItem = function (item) {
+  //Private method
+  const calculateTotalQuantity = function () {
+      return items.reduce((total, item) => total + item.quantity,0);
+  }
+  this.addItem = function (name, quantity) {
+    const item = new GroceryItem(name, quantity);
     this.items.push(item);
   };
-  this.displayList = function () {
-    this.items.forEach(function (item) {
-      item.display();
-    });
+  this.displayItems = function () {
+    items.forEach(item=>item.display());
   };
 }
