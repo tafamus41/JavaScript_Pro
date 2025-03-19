@@ -24,5 +24,13 @@ const ProgrammerFunc = new Function(
             console.log("Code in JavaScript");
         }`
 );
-const programmer=new ProgrammerFunc("Steven");
+const programmer = new ProgrammerFunc("Steven");
 programmer.writeCode();
+
+function GroceryItem(name, quantity) {
+  this.name = name;
+  this.quantity = quantity;
+  this.display = function () {
+    console.log(`${this.name} x ${this.quantity}`);
+  };
+}
