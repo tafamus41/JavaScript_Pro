@@ -23,3 +23,5 @@ function GroceryItem(name, quantity) {
   };
 }
 const newItem = new GroceryItem("banana", 2);
+newItem.groceryAisle = "produce";
+console.log(newItem);
