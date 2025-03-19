@@ -20,3 +20,8 @@ function Programmer(name,preferredLanguage){
     }
     
 }
+
+const programmer=new Programmer("John","JavaScript");
+programmer.writeCode();
+programmer.drinkCoffee();
+programmer.startDay();
