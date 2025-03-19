@@ -34,3 +34,9 @@ function GroceryItem(name, quantity) {
     console.log(`${this.name} x ${this.quantity}`);
   };
 }
+const newItem = new GroceryItem("apple", 8);
+function calculatePrice(groceryItem,price) {
+  return groceryItem.quantity * price;
+}    
+const performCalculation = calculatePrice;
+console.log(performCalculation(newItem, 0.25));
