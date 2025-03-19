@@ -67,7 +67,7 @@ function BankAccount(initialBalance) {
         if (isValidAmount(amount)) {
             if (amount <= balance) {
                 balance -= amount;
-                console.log(`Withdrew: $${amount}`);
+                console.log(`Withdraw: $${amount}`);
             } else {
                 console.log('Insufficient funds');
             }
