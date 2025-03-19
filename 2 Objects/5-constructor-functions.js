@@ -1,3 +1,6 @@
+/* Constructor Functions:A constructor function is a regular JavaScript function used to create multiple objects with the same structure and behavior. It acts as a blueprint for objects.*/
+
+
 function Programmer(name,preferredLanguage) {
     this.name=name;
     this.preferredLanguage=preferredLanguage;
