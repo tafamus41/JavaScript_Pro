@@ -35,9 +35,17 @@ function GroceryList() {
   }
   this.addItem = function (name, quantity) {
     const item = new GroceryItem(name, quantity);
-    this.items.push(item);
+    items.push(item);
   };
   this.displayItems = function () {
     items.forEach(item=>item.display());
-  };
+  }
+  this.getTotalQuantity = function () {
+    return calculateTotalQuantity();
+  }
 }
+
+const myList = new GroceryList();
+myList.addItem("banana", 2);
+myList.addItem("apple", 3);
+myList.displayItems();
