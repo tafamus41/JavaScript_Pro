@@ -39,3 +39,6 @@ for (const key of Object.keys(newItem))
 
 for (const value of Object.values(newItem)) 
   console.log(value);
+
+for (const entry of Object.entries(newItem)) 
+  console.log(entry);
