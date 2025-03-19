@@ -13,3 +13,13 @@ function Programmer(name,preferredLanguage) {
     }
     const newProgrammer=new Programmer("Adam","JavaScript");
     newProgrammer.writeCode();
+
+    function GroceryItem(name,quantity){
+        this.name=name;
+        this.quantity=quantity; 
+        this.display=function(){
+            console.log(`${this.name} x ${this.quantity}`);    
+        };
+        }
+        const newItem=new GroceryItem("apple",2);
+        newItem.display();
