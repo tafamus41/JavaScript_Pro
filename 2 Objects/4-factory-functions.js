@@ -14,3 +14,24 @@ function createProgrammer(name,preferredLanguage){
 
 const newProgrammer=createProgrammer("John","JavaScript");
 newProgrammer.writeCode();
+
+const groceryItem={
+    name:"banana",
+    quantity:2,
+    display(){
+        console.log(`${this.name} x ${this.quantity}`);
+    }
+}
+
+function createGroceryItem(name,quantity){
+    return{
+        name,
+        quantity,
+        display(){
+            console.log(`${this.name} x ${this.quantity}`);
+        }
+    }
+}
+
+const newItem=createGroceryItem("banana",2);
+newItem.display();
