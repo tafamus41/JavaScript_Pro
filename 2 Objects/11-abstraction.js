@@ -13,7 +13,7 @@ function Programmer(name,preferredLanguage){
     //Private method
     const drinkCoffee=function(){
         console.log(`${this.name} drinks coffee.`);
-    }
+    }.bind(this);
     //Public method
     this.startDay=function(){
         drinkCoffee();
