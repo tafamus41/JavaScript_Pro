@@ -48,4 +48,5 @@ function GroceryList() {
 const myList = new GroceryList();
 myList.addItem("banana", 2);
 myList.addItem("apple", 3);
-myList.displayItems();
+// myList.displayItems();
+console.log(`Total quantity: ${myList.getTotalQuantity()}`);
