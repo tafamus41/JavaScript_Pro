@@ -24,5 +24,5 @@ for(const value of values){
 
 const entries=Object.entries(dog);
 for(const entry of entries){
-    console.log(entry);
+    console.log(`Key: ${entry[0]}, Value: ${entry[1]}`);
 }
