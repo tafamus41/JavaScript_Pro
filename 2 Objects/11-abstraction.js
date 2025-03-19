@@ -26,3 +26,15 @@ function GroceryItem(name, quantity) {
     console.log(`${this.name} x ${this.quantity}`);
   };
 }
+
+function GroceryList() {
+  const items = [];
+  this.addItem = function (item) {
+    this.items.push(item);
+  };
+  this.displayList = function () {
+    this.items.forEach(function (item) {
+      item.display();
+    });
+  };
+}
