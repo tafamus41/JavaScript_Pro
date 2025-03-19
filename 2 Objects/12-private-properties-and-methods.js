@@ -30,7 +30,7 @@ function Programmer(name, preferredLanguage) {
     let privateName = name;
     this.preferredLanguage = preferredLanguage;
     this.writeCode = function () {
-        console.log(`Code in ${preferredLanguage}`);
+        console.log(`${privateName} codes in ${preferredLanguage}`);
     };
     let drinkCoffee = function () {
         console.log("Gulp...");
