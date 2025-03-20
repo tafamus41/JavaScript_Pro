@@ -46,12 +46,12 @@ let superAdmin = {
     }
 }
 
-admin.fullName = 'Bruce Wayne';
-console.log( admin.fullName );
-console.log( user.fullName );
+// admin.fullName = 'Bruce Wayne';
+// console.log( admin.fullName );
+// console.log( user.fullName );
 
-for (let key in admin)
-    console.log(key);
+// for (let key in admin)
+//     console.log(key);
 
 console.log( Object.keys(admin) );
 
