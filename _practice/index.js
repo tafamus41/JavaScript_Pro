@@ -48,9 +48,29 @@
 // jsProgrammer.writeCode();
 // console.log(jsProgrammer.toString());
 
-Array.prototype.shuffle=function(){
-    console.log("shuffle");
+// Array.prototype.shuffle=function(){
+//     console.log("shuffle");
+// }
+
+// function shuffleArray(array) {
+//     return array;
+// }
+// const array=[]
+// const shuffledArray=shuffleArray(array);
+
+// if (typeof Array.prototype.shuffle !== 'function') {
+//     Array.prototype.shuffle = function () {
+//         console.log("shuffle");
+//     };
+// }
+// array.shuffle();
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
-const array=[]
-array.shuffle();
+const array = [1, 2, 3, 4, 5];
+console.log(shuffleArray(array)); // Randomly shuffled array
