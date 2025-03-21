@@ -18,5 +18,6 @@
 
 function Circle(){}
 let obj={}
+console.log(Circle.prototype)
 console.log(obj.__proto__)
 console.log(Object.prototype)
