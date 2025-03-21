@@ -14,5 +14,7 @@ this.meeting= function() {
 const alice = new Programmer('Alice');
 const steven = new Programmer('Steven');    
 
-alice.code();
-steven.code();
+// alice.code();
+// steven.code();
+
+console.log(alice.code === steven.code);
