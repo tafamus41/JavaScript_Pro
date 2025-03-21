@@ -26,15 +26,24 @@ function Programmer(name, preferredLanguage) {
     this.name = name;
     this.preferredLanguage = preferredLanguage;
 }
+const programmer=new Programmer("John","JavaScript");
+
 
 Programmer.prototype.writeCode = function () {
-    console.log(`${this.name} writes ${this.preferredLanguage} code.`);
+    console.log(`${this.name} writes code in ${this.preferredLanguage}`);
 };
+// programmer.writeCode();
 
-Programmer.prototype.toString = function () {
-    return `${this.name} codes in ${this.preferredLanguage}`;
-};
+// for (let key in programmer) {
+//     console.log(key);
+// }
 
-const jsProgrammer = new Programmer('John', 'JavaScript');
-jsProgrammer.writeCode();
-console.log(jsProgrammer.toString());
+console.log(programmer.hasOwnProperty("name"));
+console.log(programmer.hasOwnProperty("writeCode"));
+// Programmer.prototype.toString = function () {
+//     return `${this.name} codes in ${this.preferredLanguage}`;
+// };
+
+// const jsProgrammer = new Programmer('John', 'JavaScript');
+// jsProgrammer.writeCode();
+// console.log(jsProgrammer.toString());
