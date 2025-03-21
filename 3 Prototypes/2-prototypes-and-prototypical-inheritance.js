@@ -57,10 +57,10 @@ console.log( Object.keys(admin) );
 
 const programmerPrototype = {
     writeCode: function() {
-        console.log(`Writing code in ${this.preferredLanguage}`);
+        console.log(`${this.name} Writing code in ${this.preferredLanguage}`);
     },
     drinkCoffee: function() {
-        console.log('Drinking coffee');
+        console.log(`${this.name} Drinking coffee`);
     }
 };
 
@@ -86,6 +86,9 @@ function Programmer(name, preferredLanguage) {
 const jsProgrammer = new Programmer('Alice', 'JavaScript');
 jsProgrammer.writeCode();
 jsProgrammer.drinkCoffee();
+// user.writeCode();
 console.log(jsProgrammer.name);
 jsProgrammer.name = 'Steven';
 console.log(jsProgrammer.name);
+jsProgrammer.name=user.name;
+jsProgrammer.writeCode();
