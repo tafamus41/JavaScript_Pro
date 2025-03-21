@@ -36,5 +36,5 @@ Programmer.prototype.toString = function () {
 };
 
 const jsProgrammer = new Programmer('John', 'JavaScript');
-// jsProgrammer.writeCode();
+jsProgrammer.writeCode();
 console.log(jsProgrammer.toString());
