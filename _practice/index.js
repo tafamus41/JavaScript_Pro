@@ -20,7 +20,7 @@ const steven = new Programmer('Steven');
 // alice.code();
 // steven.code();
 
-console.log(alice.code === steven.code);
+// console.log(alice.code === steven.code);
 function FrontEndProgrammer(name) {
     Programmer.call(this, name);
 }
