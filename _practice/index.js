@@ -21,3 +21,26 @@ const steven = new Programmer('Steven');
 // steven.code();
 
 console.log(alice.code === steven.code);
+function FrontEndProgrammer(name) {
+    Programmer.call(this, name);
+}
+
+function BackEndProgrammer(name) {
+    Programmer.call(this, name);
+}
+
+FrontEndProgrammer.prototype = Object.create(Programmer.prototype);
+BackEndProgrammer.prototype = Object.create(Programmer.prototype);
+
+FrontEndProgrammer.prototype.constructor = FrontEndProgrammer;
+BackEndProgrammer.prototype.constructor = BackEndProgrammer;
+
+const joe = new FrontEndProgrammer('Joe');
+joe.code();
+joe.debug();
+joe.meeting();
+
+const jen = new BackEndProgrammer('Jen');
+jen.code();
+jen.debug();
+jen.meeting();
