@@ -1,29 +1,36 @@
-function Employee(name) {
-    this.name = name;
-}
-
-const canCode = {
-    code() {
-        console.log(`${this.name} is coding`);
+const canEat = {
+    eat: function() {
+        this.hunger--;
+        console.log(`${this.name} is eating.`);
     }
 };
 
-const canReview = {
-    review() {
-        console.log(`${this.name} is reviewing code.`);
+const canWalk = {
+    walk: function() {
+        console.log(`${this.name} is walking.`);
     }
-}
+};
+
+const canCode = {
+    code: function() {
+        console.log(`${this.name} is coding.`);
+    }
+};
 
 function Programmer(name) {
-    Employee.call(this, name);
-    // Composing the object with necessary functionalities
-    Object.assign(this, canCode, canReview);
+    this.name = name;
+    this.hunger = 10; // Default hunger level
 }
 
-function Manager(name) {
-    Employee.call(this, name);
-}
+// Mixin functionalities into Programmer's prototype
+// Object.assign(Programmer.prototype, canEat, canWalk, canCode);
 
-const steven = new Programmer('Steven');
-steven.code();
-steven.review();
+const programmer = new Programmer('Steven');
+
+mixin(programmer, canEat, canWalk, canCode);
+
+console.log(programmer);
+programmer.eat();
+programmer.walk();
+programmer.code();
+
