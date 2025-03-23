@@ -1,42 +1,29 @@
-function extend(Child, Parent) {
-    Child.prototype = Object.create(Parent.prototype);
-    Child.prototype.constructor = Child;
-}
-
-function Programmer(name) {
+function Employee(name) {
     this.name = name;
 }
 
-Programmer.prototype.work = function() {
-    console.log(`${this.name} is working on programming tasks.`);
+const canCode = {
+    code() {
+        console.log(`${this.name} is coding`);
+    }
 };
 
-function FrontEndProgrammer(name) {
-    Programmer.call(this, name);
+const canReview = {
+    review() {
+        console.log(`${this.name} is reviewing code.`);
+    }
 }
 
-function BackEndProgrammer(name) {
-    Programmer.call(this, name);
+function Programmer(name) {
+    Employee.call(this, name);
+    // Composing the object with necessary functionalities
+    Object.assign(this, canCode, canReview);
 }
 
-extend(FrontEndProgrammer, Programmer);
-extend(BackEndProgrammer, Programmer);
-
-FrontEndProgrammer.prototype.work = function() {
-    console.log(`${this.name} is designing and coding the frontend.`);
+function Manager(name) {
+    Employee.call(this, name);
 }
 
-BackEndProgrammer.prototype.work = function() {
-    console.log(`${this.name} is developing server-side logic.`);
-}
-
-const steven = new FrontEndProgrammer('Steven');
-const alice = new BackEndProgrammer('Alice');
-
-const programmers = [
-    steven,
-    alice
-];
-
-for (let programmer of programmers)
-    programmer.work();
+const steven = new Programmer('Steven');
+steven.code();
+steven.review();
