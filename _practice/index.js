@@ -1,3 +1,7 @@
+function mixin(target, ...sources) {
+    Object.assign(target, ...sources);
+}
+
 const canEat = {
     eat: function() {
         this.hunger--;
@@ -23,14 +27,14 @@ function Programmer(name) {
 }
 
 // Mixin functionalities into Programmer's prototype
-Object.assign(Programmer.prototype, canEat, canWalk, canCode);
+// Object.assign(Programmer.prototype, canEat, canWalk, canCode);
 
 const programmer = new Programmer('Steven');
 
-// mixin(programmer, canEat, canWalk, canCode);
+mixin(programmer, canEat, canWalk, canCode);
 
-// console.log(programmer);
-// programmer.eat();
-// programmer.walk();
-// programmer.code();
+console.log(programmer);
+programmer.eat();
+programmer.walk();
+programmer.code()
 
