@@ -23,7 +23,7 @@ function Programmer(name) {
 }
 
 // Mixin functionalities into Programmer's prototype
-// Object.assign(Programmer.prototype, canEat, canWalk, canCode);
+Object.assign(Programmer.prototype, canEat, canWalk, canCode);
 
 const programmer = new Programmer('Steven');
 
