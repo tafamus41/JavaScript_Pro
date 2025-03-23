@@ -1,18 +1,14 @@
-function Programmer(name) {
+function Programmer(name, specialization) {
     this.name = name;
-}   
-
-Programmer.prototype.code = function() {
-    console.log(`${this.name} starts coding.`);
-};  
-
-function FrontEndProgrammer(name) {
-    Programmer.call(this, name); // Inherits properties from Programmer
+    this.specialization = specialization
 }
 
+function FrontEndProgrammer(name, specialization, preferredFramework) {
+    Programmer.call(this, name, specialization);
+    this.preferredFramework = preferredFramework;
+}
 
-FrontEndProgrammer.prototype = Object.create(Programmer.prototype);
-FrontEndProgrammer.prototype.constructor = FrontEndProgrammer;
-
-const steven = new FrontEndProgrammer("Steven");
-console.log(FrontEndProgrammer.prototype.constructor === Programmer);
+const steven = new FrontEndProgrammer('Steven', 'Front-end', 'React');
+console.log(steven.name);
+console.log(steven.specialization);
+console.log(steven.preferredFramework);
