@@ -1,17 +1,9 @@
-// function ProgrammerFunc(name, preferredLanguage) {
-//     this.name = name;
-//     this.preferredLanguage = preferredLanguage;
-
-//     this.code = function() {
-//         console.log(`${this.name} is coding in ${this.preferredLanguage}.`);
-//     }
-// }
+// const dev = new Programmer('Steven', 'JavaScript');
 
 // class Programmer {
 //     constructor(name, preferredLanguage) {
 //         this.name = name;
 //         this.preferredLanguage = preferredLanguage;
-        
 //     }
 
 //     code() {
@@ -19,34 +11,33 @@
 //     }
 // }
 
-// const programmer = new ProgrammerFunc('Steven', 'JavaScript');
+// Will result in a reference error
+// const programmer = new MyProgrammerClass('Steven', 'JavaScript');
 // programmer.code();
 
-// console.log(typeof ProgrammerFunc); // Outputs: function
-
-/* --------------
-Exercise
--------------- */
-// function GroceryItemFunc(name, quantity) {
-//     this.name = name;
-//     this.quantity = quantity;
-
-//     this.display = function() {
-//         console.log(`${this.name} x ${this.quantity}`);
-//     }
-// }
-
-class GroceryItem {
-    constructor(name, quantity) {
+const MyProgrammerClass = class {
+    constructor(name, preferredLanguage) {
         this.name = name;
-        this.quantity = quantity;
+        this.preferredLanguage = preferredLanguage;
     }
 
-    display() {
-        console.log(`${this.name} x ${this.quantity}`);
+    code() {
+        console.log(`${this.name} is coding in ${this.preferredLanguage}.`);
     }
 }
 
-const item = new GroceryItem('Apple', 4);
-item.display();
+// Will execute successfully as function declarations are hoisted
+// greet();
 
+// function greet() {
+//     console.log('Hello World');
+// }
+
+// Will result in a reference error
+// sayGoodbye();
+
+// const sayGoodbye = function() {
+//     console.log('Goodbye');
+// }
+
+// sayGoodbye();
