@@ -12,6 +12,7 @@ function FrontEndProgrammer(name) {
 
 
 FrontEndProgrammer.prototype = Object.create(Programmer.prototype);
+FrontEndProgrammer.prototype.constructor = FrontEndProgrammer;
 
 const steven = new FrontEndProgrammer("Steven");
 console.log(FrontEndProgrammer.prototype.constructor === Programmer);
