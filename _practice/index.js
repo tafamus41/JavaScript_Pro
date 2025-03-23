@@ -14,33 +14,35 @@ class Programmer {
 }
 
 const dev = new Programmer('Steven', 'JavaScript');
-const dev2 = new Programmer('Alice', 'JavaScript');
+dev.code();
+const dev2 = new Programmer('Alice', 'Python');
+dev2.code();
 console.log(Programmer.compareSkill(dev, dev2));
 
 /* --------------
 Exercise
 -------------- */
-class GroceryItem {
-    constructor(name, quantity) {
-        this.name = name;
-        this.quantity = quantity;
-    }
+// class GroceryItem {
+//     constructor(name, quantity) {
+//         this.name = name;
+//         this.quantity = quantity;
+//     }
 
-    display() {
-        console.log(`${this.name} x ${this.quantity}`);
-    }
+//     display() {
+//         console.log(`${this.name} x ${this.quantity}`);
+//     }
 
-    static compareQuantities(item1, item2) {
-        if (item1.quantity > item2.quantity) {
-            console.log(`${item1.name} has more quantity than ${item2.name}`);
-        } else if (item1.quantity < item2.quantity) {
-            console.log(`${item2.name} has more quantity than ${item1.name}`);
-        } else {
-            console.log(`${item1.name} and ${item2.name} have the same quantity`);
-        }
-    }
-}
+//     static compareQuantities(item1, item2) {
+//         if (item1.quantity > item2.quantity) {
+//             console.log(`${item1.name} has more quantity than ${item2.name}`);
+//         } else if (item1.quantity < item2.quantity) {
+//             console.log(`${item2.name} has more quantity than ${item1.name}`);
+//         } else {
+//             console.log(`${item1.name} and ${item2.name} have the same quantity`);
+//         }
+//     }
+// }
 
-const apple = new GroceryItem('Apple', 7);
-const banana = new GroceryItem('Banana', 7);
-console.log(GroceryItem.compareQuantities(apple, banana));
+// const apple = new GroceryItem('Apple', 7);
+// const banana = new GroceryItem('Banana', 7);
+// console.log(GroceryItem.compareQuantities(apple, banana));
