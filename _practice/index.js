@@ -1,11 +1,11 @@
-function ProgrammerFunc(name, preferredLanguage) {
-    this.name = name;
-    this.preferredLanguage = preferredLanguage;
+// function ProgrammerFunc(name, preferredLanguage) {
+//     this.name = name;
+//     this.preferredLanguage = preferredLanguage;
 
-    this.code = function() {
-        console.log(`${this.name} is coding in ${this.preferredLanguage}.`);
-    }
-}
+//     this.code = function() {
+//         console.log(`${this.name} is coding in ${this.preferredLanguage}.`);
+//     }
+// }
 
 // class Programmer {
 //     constructor(name, preferredLanguage) {
@@ -19,10 +19,10 @@ function ProgrammerFunc(name, preferredLanguage) {
 //     }
 // }
 
-const programmer = new ProgrammerFunc('Steven', 'JavaScript');
-programmer.code();
+// const programmer = new ProgrammerFunc('Steven', 'JavaScript');
+// programmer.code();
 
-console.log(typeof ProgrammerFunc); // Outputs: function
+// console.log(typeof ProgrammerFunc); // Outputs: function
 
 /* --------------
 Exercise
@@ -36,17 +36,17 @@ Exercise
 //     }
 // }
 
-// class GroceryItem {
-//     constructor(name, quantity) {
-//         this.name = name;
-//         this.quantity = quantity;
-//     }
+class GroceryItem {
+    constructor(name, quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
 
-//     display() {
-//         console.log(`${this.name} x ${this.quantity}`);
-//     }
-// }
+    display() {
+        console.log(`${this.name} x ${this.quantity}`);
+    }
+}
 
-// const item = new GroceryItem('Apple', 4);
-// item.display();
+const item = new GroceryItem('Apple', 4);
+item.display();
 
