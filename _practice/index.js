@@ -27,10 +27,10 @@ Object.assign(Programmer.prototype, canEat, canWalk, canCode);
 
 const programmer = new Programmer('Steven');
 
-mixin(programmer, canEat, canWalk, canCode);
+// mixin(programmer, canEat, canWalk, canCode);
 
-console.log(programmer);
-programmer.eat();
-programmer.walk();
-programmer.code();
+// console.log(programmer);
+// programmer.eat();
+// programmer.walk();
+// programmer.code();
 
