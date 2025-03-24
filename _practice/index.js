@@ -1,42 +1,55 @@
 const _language = new WeakMap();
-const _work = new WeakMap();
-
-class ProgrammerImplementation {
-    constructor(name, language) {
-        this.name = name;
-
-        // Store language in a WeakMap with 'this' as the key
-        _language.set(this, language);
-
-        // Store a private method in a WeakMap
-        _work.set(this, () => {
-            console.log(`${this.name} is coding in ${_language.get(this)}`);
-        });
-    }
-
-    code() {
-        // Access and invoke the private method
-        _work.get(this)();
-    }
-}
-
-const privateProps = new WeakMap();
 
 class Programmer {
     constructor(name, language) {
-        privateProps.set(this, {
-            name: name,
-            language: language,
-            work: () => {
-                console.log(`${privateProps.get(this).name} is coding in ${privateProps.get(this).language}`);
-            }
-        });
+        this.name = name;
+        _language.set(this, language);
     }
 
-    code() {
-        privateProps.get(this).work();
+    getLanguage() {
+        return _language.get(this);
     }
 }
 
-const programmer = new ProgrammerImplementation('Steven', 'JavaScript');
-programmer.code();
+const programmer = new Programmer('Steven', 'JavaScript');
+console.log(programmer.getLanguage());  // Outputs: JavaScript
+
+class ProgrammerUsingObjectDefineProperty {
+    constructor(name, language) {
+        this.name = name;
+        _language.set(this, language);
+
+        Object.defineProperty(this, 'language', {
+            get: function() {
+                return _language.get(this);
+            }
+        });
+    }
+}
+
+const programmer2 = new ProgrammerUsingObjectDefineProperty('Steven', 'JavaScript');
+console.log(programmer2.skills);  // Outputs: JavaScript
+
+// get and set operators
+class ProgrammerUsingGettersAndSetters {
+    constructor(name, language) {
+        this.name = name;
+        _language.set(this, language);
+    }
+
+    // Getter
+    get language() {
+        return _language.get(this);
+    }
+
+    // Setter
+    set languge(newLanguage) {
+        if (!newLanguage) throw new Error('Skills cannot be empty');
+        _language.set(this, newLanguage);
+    }
+}
+
+const programmer3 = new ProgrammerUsingGettersAndSetters('Steven', 'JavaScript');
+console.log(programmer3.skills);  // Outputs: JavaScript
+programmer3.skills = 'Python';
+console.log(programmer3.skills);  // Outputs: Python
