@@ -1,98 +1,42 @@
-// class ProgrammerUsingUnderscoreNamingConvention {
-//     constructor(name, language) {
-//         this._language = language;  // Not truly private, just a convention
-//     }
-// }
+const _language = new WeakMap();
+const _work = new WeakMap();
 
-// const _language = Symbol();
+class ProgrammerImplementation {
+    constructor(name, language) {
+        this.name = name;
 
-// class ProgrammerUsingSymbols {
-//     constructor(name, language) {
-//         this[_language] = language;  // More private, but still accessible through reflection
-//     }
-// }
+        // Store language in a WeakMap with 'this' as the key
+        _language.set(this, language);
 
-// const programmer = new ProgrammerUsingSymbols('Steven', 'JavaScript');
-
-// Accessing the property using Symbol is not straightforward
-//
-// console.log(programmer[languageSymbol]); // Outputs the language
-
-// const _code = Symbol();
-
-// class ProgrammerWithPrivateMethod {
-//     constructor(name, language) {
-//         this[_language] = language;
-//     }
-
-//     // Private method
-//     [_code]() {
-//         console.log(`${this.name} is coding in ${this[_language]}.`);
-//     }
-// }
-
-// Preferred ES2022 syntax with a private property and private method.
-// class Programmer {
-//     #language;
-
-//     constructor(name, language) {
-//         this.#language = language;
-//     }
-
-//     // Truly private method
-//     #code() {
-//         console.log(`Coding in ${this.#language}`);
-//     }
-// }
-// const programmer = new Programmer('Steven', 'JavaScript');
-// console.log(programmer);
-// console.log(programmer.language);
-
-/* --------------
-Exercise
--------------- */
-class GroceryItem {
-    #name;
-    #quantity;
-
-    constructor(name, quantity) {
-        this.#name = name;
-        this.#quantity = quantity;
+        // Store a private method in a WeakMap
+        _work.set(this, () => {
+            console.log(`${this.name} is coding in ${_language.get(this)}`);
+        });
     }
 
-    // Public method to display item details
-    displayItem() {
-        return `Item: ${this.#name}, Quantity: ${this.#quantity}`
+    code() {
+        // Access and invoke the private method
+        _work.get(this)();
     }
 }
 
-class GroceryList {
-    #items;
+const privateProps = new WeakMap();
 
-    constructor() {
-        this.#items = [];
+class Programmer {
+    constructor(name, language) {
+        privateProps.set(this, {
+            name: name,
+            language: language,
+            work: () => {
+                console.log(`${privateProps.get(this).name} is coding in ${privateProps.get(this).language}`);
+            }
+        });
     }
 
-    // Public method to add an item to the list
-    addItem(name, quantity) {
-        const item = new GroceryItem(name, quantity);
-        this.#items.push(item);
-    }
-
-    // Public method to remove an item from the list by name
-    removeItem(name) {
-        this.#items = this.#items.filter(item => !item.displayItem().includes(`Item: ${name},`));
-    }
-
-//     // Public method to display all items in the list
-    displayList() {
-        return this.#items.map(item => item.displayItem()).join('\n');
+    code() {
+        privateProps.get(this).work();
     }
 }
 
-// const groceryList = new GroceryList();
-// groceryList.addItem('Apples', 5);
-// groceryList.addItem('Bananas', 3);
-// console.log(groceryList.displayList());
-// groceryList.removeItem('Apples');
-// console.log(groceryList.displayList());
+const programmer = new ProgrammerImplementation('Steven', 'JavaScript');
+programmer.code();
