@@ -1,3 +1,3 @@
-const Programmer= require('./Programmer');
-const steven= new Programmer('Steven', 'JavaScript');
-steven.code();
+const GroceryItem= require('./GroceryItem.js');
+const item= new GroceryItem('Apple', 4);
+item.display();
