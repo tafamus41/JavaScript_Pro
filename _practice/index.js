@@ -18,8 +18,9 @@ class Programmer {
 
 const programmer = new Programmer("Steven", "JavaScript");
 // console.log(programmer.getLanguage());  // Outputs: JavaScript
-// console.log(programmer.language)
-programmer.language;
+// 
+programmer.language="Java"
+console.log(programmer.language)
 // class ProgrammerUsingObjectDefineProperty {
 //   constructor(name, language) {
 //     this.name = name;
