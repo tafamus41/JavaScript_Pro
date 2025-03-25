@@ -3,29 +3,21 @@ class Programmer {
         this.name = name;
     }
 
-    code() {
-        console.log(`${this.name} starts coding.`);
+    work() {
+        console.log(`${this.name} is solving problems.`);
     }
 }
 
 class FrontEndProgrammer extends Programmer {
-    constructor(name, tools) {
-        // Call the superclass constructor with the name
-        super(name); 
-        // Additional property specific to FrontEndProgrammers
-        this.tools = tools;
+    constructor(name) {
+        super(name); // Initialize the base class part of the object
     }
 
-    code() {
-        super.code(); // Call the generic code method from Programmer
-        console.log(`${this.name} codes with ${this.tools}.`);
-    }
-
-    design() {
-        console.log(`${this.name} also designs the user interfaces.`);
+    work() {
+        super.work(); // Calls the base class method
+        console.log(`${this.name} is also designing and implementing UI Components`);
     }
 }
 
-const frontEndDev = new FrontEndProgrammer('Steven', 'React');
-frontEndDev.code(); 
-frontEndDev.design();
+const steven = new FrontEndProgrammer('Steven');
+steven.work();
