@@ -1,4 +1,4 @@
-import Programmer from './Programmer.js';
+import GroceryItem from "./GroceryItem";
 
-const dev = new Programmer('Steven', 'JavaScript');
-dev.code();
+const item = new GroceryItem('Apple', 4);
+item.display();
