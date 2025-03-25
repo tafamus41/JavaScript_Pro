@@ -1,4 +1,4 @@
-class Programmer {
+export class Programmer {
   role = "developer";
   #experience;
   constructor(name, technology, experience) {
