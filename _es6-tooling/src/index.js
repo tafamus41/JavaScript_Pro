@@ -17,3 +17,6 @@ export class Programmer {
     return this.#experience;
   }
 }
+
+const dev= new Programmer('Steven', 'JavaScript', 5);
+dev.develop();
