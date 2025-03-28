@@ -1,60 +1,53 @@
-// console.log('before');
-// const groceryItem = getGroceryItem(1); // CANNOT get grocery item like this
-// console.log(groceryItem); // will get undefined
-// console.log('after');
+console.log('before');
+// const groceryList = getGroceryList(1); // CANNOT get grocery list like this
+// console.log(groceryList); // will get undefined
+console.log('after');
 
-// function getGroceryItem(id) {
+// function getGroceryList(id, callback) {
 //     setTimeout(() => {
-//         // Simulate a call to the database
-//         console.log('Reading a grocery item from a database...');
-//         return { id: id, name: 'Apples' };
+//         // simulate a call to the database
+//         console.log('Fetching grocery list from the database...');
+//         callback({ id: id, items: ['apples', 'bananas', 'bread'] });
 //     }, 2000);
 // }
 
-// Callbacks
 // console.log('before');
-// getGroceryItem(1, (groceryItem) => {
-//     console.log(groceryItem);
+// getGroceryList(1, function(groceryList) {
+//     console.log('Grocery List:', groceryList);
 // });
 // console.log('after');
 
-// function getGroceryItem(id, callback) {
+// function getGroceryList(id, callback) {
 //     setTimeout(() => {
-//         console.log('Reading a grocery item from a database...');
-//         callback({ id: id, name: 'Apples' });
+//         // simulate a call to the database
+//         console.log('Fetching grocery list from the database...');
+//         callback({ id: id, items: ['apples', 'bananas', 'bread'] });
 //     }, 2000);
 // }
 
-// // Promises
+// Accessing Nested Asynchronous Data
 // console.log('before');
-// getGroceryItem(1)
-//     .then(item => console.log(item))
-//     .catch(err => console.error(err));
+// getGroceryList(1, (groceryList) => {
+//     console.log('Grocery List:', groceryList);
+
+//     // get the grocery list items
+//     getGroceryListItems(groceryList.id, (items) => {
+//         console.log('Items:', items);
+//     });
+// });
 // console.log('after');
 
-// function getGroceryItem(id) {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             console.log('Reading a grocery item from a database...');
-//             resolve({ id: id, name: 'Apples' });
-//         }, 2000);
-//     });
+// function getGroceryList(id, callback) {
+//     setTimeout(() => {
+//         // simulate a call to the database
+//         console.log('Fetching grocery list from the database...');
+//         callback({ id: id, items: ['apples', 'bananas', 'bread'] });
+//     }, 2000);
 // }
 
-// // Using Async/Await
-console.log('before');
-async function displayGroceryItem() {
-    const groceryItem = await getGroceryItem(1);
-    console.log(groceryItem);
-}
-displayGroceryItem();
-console.log('after');
-
-function getGroceryItem(id) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log('Reading a grocery item from a database...');
-            resolve({ id: id, name: 'Apples' });
-        }, 2000);
-    });
-}
+// function getGroceryListItems(listId, callback) {
+//     setTimeout(() => {
+//         console.log('Fetching items from the grocery list...');
+//         callback(['apples', 'bananas', 'bread']);
+//     }, 2000);
+// }
