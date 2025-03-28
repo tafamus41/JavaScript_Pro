@@ -26,28 +26,10 @@
 // }
 
 // // Promises
-console.log('before');
-getGroceryItem(1)
-    .then(item => console.log(item))
-    .catch(err => console.error(err));
-console.log('after');
-
-function getGroceryItem(id) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log('Reading a grocery item from a database...');
-            resolve({ id: id, name: 'Apples' });
-        }, 2000);
-    });
-}
-
-// // Using Async/Await
 // console.log('before');
-// async function displayGroceryItem() {
-//     const groceryItem = await getGroceryItem(1);
-//     console.log(groceryItem);
-// }
-// displayGroceryItem();
+// getGroceryItem(1)
+//     .then(item => console.log(item))
+//     .catch(err => console.error(err));
 // console.log('after');
 
 // function getGroceryItem(id) {
@@ -58,3 +40,21 @@ function getGroceryItem(id) {
 //         }, 2000);
 //     });
 // }
+
+// // Using Async/Await
+console.log('before');
+async function displayGroceryItem() {
+    const groceryItem = await getGroceryItem(1);
+    console.log(groceryItem);
+}
+displayGroceryItem();
+console.log('after');
+
+function getGroceryItem(id) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Reading a grocery item from a database...');
+            resolve({ id: id, name: 'Apples' });
+        }, 2000);
+    });
+}
